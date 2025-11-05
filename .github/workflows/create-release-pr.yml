@@ -54,8 +54,7 @@ jobs:
         run: >
           mvn deploy
           -no-transfer-progress
-          --settings .github/workflows/settings.xml
-          --file semantic-releasing-spring-boot-3_4/pom.xml
+          --settings ../.github/workflows/settings.xml
         working-directory: semantic-releasing-spring-boot-3_4
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -81,7 +80,7 @@ jobs:
         run: >
           mvn deploy
           -no-transfer-progress
-          --settings .github/workflows/settings.xml
-          --file semantic-releasing-spring-boot-3_5/pom.xml
+          --settings ../.github/workflows/settings.xml
+        working-directory: semantic-releasing-spring-boot-3_5
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
