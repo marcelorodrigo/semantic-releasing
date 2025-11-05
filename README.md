@@ -22,26 +22,93 @@ Each version is split into its own module.
 - Semantic Release automation (release-please)
 
 
-## Semantic Release
+## Conventional Commits
 
-Automated releases are managed via [release-please](https://github.com/googleapis/release-please) using the `release-please-config.json` file.
+This project follows the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) specification for all commit messages.
+Conventional commits enable automated semantic versioning and changelog generation. Each commit message should follow this format:
 
-## 📦 Releases
+```
+<type>(<scope>): <description>
+[optional body]
+```
 
-### Releasing a package
-This repository uses [release-please](https://github.com/googleapis/release-please) to create release PRs.
+### Commit Types
 
-**Important:** All pull requests must use [Conventional Commit Messages](https://www.conventionalcommits.org/en/v1.0.0/) in their commit history.
-This is required for release-please to correctly determine the next [semantic version](https://semver.org/) and generate changelogs.
+The specification defines two required types:
 
-release-please automates changelog and version updates, but actual publishing is handled via
-[create-release-pr.yml](./github/workflows/create-release-pr.yml) workflow.
+- **feat:** MUST be used when a commit adds a new feature to your application or library (triggers a **minor** version bump)
+- **fix:** MUST be used when a commit represents a bug fix for your application (triggers a **patch** version bump)
 
-A typical flow from beginning to end looks like this:
-1. You create a feature branch and make a PR from it, using semantic conventional commits
-2. The PR is reviewed and merged
-3. A release PR is automatically created
-4. Release PR is also checked and merged
-5. New versions of the changed modules will automatically be released
+Other types MAY be used (these are common conventions):
 
-You can find the released packages for this repository on [GitHub](https://github.com/marcelorodrigo/semantic-releasing/packages).
+- **docs:** Documentation only changes
+- **style:** Code style changes (formatting, missing semi-colons, etc.)
+- **refactor:** Code changes that neither fix a bug nor add a feature
+- **perf:** Performance improvements
+- **test:** Adding or updating tests
+- **chore:** Changes to the build process or auxiliary tools
+- **build:** Changes to build system or dependencies
+- **ci:** Changes to CI configuration files and scripts
+
+### Breaking Changes
+
+Breaking changes MUST be indicated in one of two ways:
+
+1. **Using `!` before the colon:** Appending `!` after the type/scope (triggers a **major** version bump)
+   ```
+   feat!: send email notification on user signup
+   feat(api)!: change response format
+   ```
+
+2. **Using `BREAKING CHANGE:` footer:** Including `BREAKING CHANGE:` in the commit footer (triggers a **major** version bump)
+   ```
+   feat: update configuration system
+   
+   BREAKING CHANGE: configuration file format changed from JSON to YAML
+   ```
+
+### Examples
+
+```
+feat(spring-boot-3_5): add new REST endpoint for user management
+
+fix(spring-boot-3_4): correct validation logic in controller
+
+docs: update README with release process
+```
+
+## 📦 Semantic Release Process
+
+Automated releases are managed via [release-please](https://github.com/googleapis/release-please) using the `release-please-config.json` file. Release-please analyzes conventional commit messages to automatically determine version bumps and generate changelogs.
+
+### How It Works
+
+1. **Create a Feature Branch**
+   - Create a feature branch from `master`
+   - Make your changes with conventional commit messages
+   - Open a pull request
+
+2. **Merge Your PR**
+   - After review and approval, merge your PR to `master`
+   - Release workflow monitors all commits on the main branch
+
+3. **Release PR Creation**
+   - Release workflow automatically creates a release PR
+   - This PR includes:
+     - Version bumps based on conventional commits
+     - Updated CHANGELOG.md files
+     - Updated `pom.xml` versions
+   - Review the proposed changes
+
+4. **Merge Release PR**
+   - Once approved, merge the release PR
+   - This triggers the actual release process
+
+5. **Artifact Publishing**
+   - Each module is published independently to GitHub Packages
+   - Multiple artifacts can be released from the same repository
+   - Publishing is handled via the [create-release-pr.yml](./.github/workflows/create-release-pr.yml) workflow
+
+### Finding Released Packages
+
+You can find all released packages for this repository on [GitHub Packages](https://github.com/marcelorodrigo/semantic-releasing/packages).
