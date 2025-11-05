@@ -21,16 +21,6 @@
         <tag/>
         <url/>
     </scm>
-    <properties>
-        <java.version>25</java.version>
-    </properties>
-    <distributionManagement>
-        <repository>
-            <id>github</id>
-            <name>GitHub Packages</name>
-            <url>https://maven.pkg.github.com/marcelorodrigo/semantic-releasing</url>
-        </repository>
-    </distributionManagement>
     <modules>
         <module>semantic-releasing-spring-boot-3.5</module>
         <module>semantic-releasing-spring-boot-3.4</module>
