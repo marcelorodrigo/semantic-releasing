@@ -5,7 +5,7 @@
   "debug": true,
   "plugins": [
     "@semantic-release/commit-analyzer",
-    "@conveyal/maven-semantic-release",
+    "@semantic-release/release-notes-generator"
     [
         "@terrestris/maven-semantic-release",
         {
