@@ -1,0 +1,23 @@
+name: Semantic Release
+on:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  release:
+    name: Pull Request
+    runs-on: ubuntu-latest
+    # Only run one job a time to avoid conflicts
+    concurrency: ci-${{ github.ref }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          show-progress: 'false'
+      - name: PR Conventional Commit Validation
+        uses: ytanikin/pr-conventional-commits@1.4.0
+        with:
+          task_types: '["feat","fix","docs","test","ci","refactor","perf","chore","revert"]'
+      - name: Test and Analyse
+        run: ./mvnw clean verify
