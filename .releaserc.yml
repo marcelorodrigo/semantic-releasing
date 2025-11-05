@@ -1,8 +1,7 @@
 {
-  "release": {
-    "branches": ["master", "next"],
-    "tagFormat": "spring-boot-3.5-java-25-${version}",
-    "dryRun": true,
-    "debug": true
-  }
+  "branches": [ "master", "next" ],
+  "tagFormat": "spring-boot-3.5-java-25-${version}",
+  "dryRun": true,
+  "debug": true
+
 }
