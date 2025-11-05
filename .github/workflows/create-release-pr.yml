@@ -14,8 +14,8 @@ jobs:
     name: Create Release
     runs-on: ubuntu-latest
     outputs:
-       version-3_5-created: ${{ steps.release.outputs.semantic-releasing-spring-boot-3_5-release_created }}
-       version-3_4-created: ${{ steps.release.outputs.semantic-releasing-spring-boot-3_4-release_created }}
+       version-3_5-created: ${{ steps.release.outputs['semantic-releasing-spring-boot-3_5--release_created'] }}
+       version-3_4-created: ${{ steps.release.outputs['semantic-releasing-spring-boot-3_4--release_created'] }}
     steps:
       - uses: googleapis/release-please-action@v4
         id: release

@@ -10,7 +10,7 @@
 	<groupId>com.github.marcelorodrigo</groupId>
 	<artifactId>semantic-releasing-spring-boot-3_4</artifactId>
 	<version>1.0.0</version>
-	<name>semantic-releasing-spring-boot-3.4</name>
+	<name>semantic-releasing-spring-boot-3_4</name>
 	<description>Semantic Releasing Project 3.4</description>
 	<url/>
 	<licenses>
