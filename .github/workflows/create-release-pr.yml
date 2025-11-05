@@ -28,7 +28,7 @@ jobs:
         continue-on-error: true
         run: |
           echo "Release outputs:"
-          echo "${{ toJson(steps.release.outputs) }}"
+          echo "${{ toJson(steps.create_release.outputs) }}"
   release-spring-boot-34:
     name: Publish Spring Boot 3.4
     if: needs.create_release.outputs.version-34-created == 'true'
