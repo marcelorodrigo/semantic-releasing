@@ -17,7 +17,13 @@ jobs:
        version-3_5-created: ${{ steps.release.outputs['semantic-releasing-spring-boot-3_5--release_created'] }}
        version-3_4-created: ${{ steps.release.outputs['semantic-releasing-spring-boot-3_4--release_created'] }}
     steps:
+      - uses: actions/checkout@v5
+        name: Checkout
+        with:
+          fetch-depth: 0
+          show-progress: false
       - uses: googleapis/release-please-action@v4
+        name: Producing Release
         id: release
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
