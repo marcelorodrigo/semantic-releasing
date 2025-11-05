@@ -14,8 +14,8 @@ jobs:
     name: Create Release
     runs-on: ubuntu-latest
     outputs:
-       version-35-created: ${{ steps.release.outputs.semantic-releasing-spring-boot-35-release_created }}
-       version-34-created: ${{ steps.release.outputs.semantic-releasing-spring-boot-34-release_created }}
+       version-3_5-created: ${{ steps.release.outputs.semantic-releasing-spring-boot-3_5-release_created }}
+       version-3_4-created: ${{ steps.release.outputs.semantic-releasing-spring-boot-3_4-release_created }}
     steps:
       - uses: googleapis/release-please-action@v4
         id: release
@@ -27,10 +27,10 @@ jobs:
         continue-on-error: true
         run: |
           echo "Release outputs:"
-          echo "${{ toJson(steps.create_release.outputs) }}"
+          echo "${{ toJson(steps.release.outputs) }}"
   release-spring-boot-34:
     name: Publish Spring Boot 3.4
-    if: needs.create_release.outputs.version-34-created == 'true'
+    if: needs.create_release.outputs.version-3_4-created == 'true'
     runs-on: ubuntu-latest
     needs: create_release
     steps:
@@ -44,14 +44,14 @@ jobs:
         with:
           distribution: temurin
           cache: maven
-          java-version-file: /semantic-releasing-spring-boot-3.4/.java-version
-          cache-dependency-path: /semantic-releasing-spring-boot-3.4/pom.xml
+          java-version-file: semantic-releasing-spring-boot-3_4/.java-version
+          cache-dependency-path: semantic-releasing-spring-boot-3_4/pom.xml
       - name: Build
         run: mvn deploy -no-transfer-progress
-        working-directory: semantic-releasing-spring-boot-3.4
+        working-directory: semantic-releasing-spring-boot-3_4
   release-spring-boot-35:
     name: Publish Spring Boot 3.5
-    if: needs.create_release.outputs.version-35-created == 'true'
+    if: needs.create_release.outputs.version-3_5-created == 'true'
     runs-on: ubuntu-latest
     needs: create_release
     steps:
@@ -65,8 +65,8 @@ jobs:
         with:
           distribution: temurin
           cache: maven
-          java-version-file: /semantic-releasing-spring-boot-3.5/.java-version
-          cache-dependency-path: /semantic-releasing-spring-boot-3.5/pom.xml
+          java-version-file: semantic-releasing-spring-boot-3_5/.java-version
+          cache-dependency-path: semantic-releasing-spring-boot-3_5/pom.xml
       - name: Build
         run: mvn deploy -no-transfer-progress
-        working-directory: semantic-releasing-spring-boot-3.5
+        working-directory: semantic-releasing-spring-boot-3_5
