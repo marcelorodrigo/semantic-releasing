@@ -26,7 +26,7 @@ jobs:
       - name: PR Conventional Commit Validation
         uses: dev-build-deploy/commit-me@v0
         with:
-          update-labels: true
+          update-labels: false
           include-commits: false
       - name: Test and Analyse
         run: ./mvnw clean verify -no-transfer-progress
