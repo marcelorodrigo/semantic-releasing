@@ -9,7 +9,7 @@
 	</parent>
 	<groupId>com.github.marcelorodrigo</groupId>
 	<artifactId>semantic-releasing-spring-boot-3.4</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1-SNAPSHOT</version>
 	<name>semantic-releasing-spring-boot-3.4</name>
 	<description>Semantic Releasing Project 3.4</description>
 	<url/>
