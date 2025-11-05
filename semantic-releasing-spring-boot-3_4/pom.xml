@@ -17,7 +17,9 @@
 		<license/>
 	</licenses>
 	<developers>
-		<developer/>
+		<developer>
+            <name>Marcelo Wiebbelling</name>
+        </developer>
 	</developers>
 	<scm>
 		<connection/>
