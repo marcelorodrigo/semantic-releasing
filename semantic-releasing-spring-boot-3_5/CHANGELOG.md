@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.0.0](https://github.com/marcelorodrigo/semantic-releasing/compare/semantic-releasing-spring-boot-3_5@v1.0.0...semantic-releasing-spring-boot-3_5@v2.0.0) (2025-11-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* Artifacts have a new housing ([#12](https://github.com/marcelorodrigo/semantic-releasing/issues/12))
+
+### Features
+
+* add developer information for Marcelo Rodrigo in pom.xml ([#17](https://github.com/marcelorodrigo/semantic-releasing/issues/17)) ([14d582f](https://github.com/marcelorodrigo/semantic-releasing/commit/14d582f64510e336b69ada60e710376da5137ead))
+* Artifacts have a new housing ([#12](https://github.com/marcelorodrigo/semantic-releasing/issues/12)) ([039ae0f](https://github.com/marcelorodrigo/semantic-releasing/commit/039ae0f7f2eaf206dd5e3db7ee70be03d7f6d027))
+* update release configuration for semantic-releasing-spring-boot packages ([#14](https://github.com/marcelorodrigo/semantic-releasing/issues/14)) ([e8b3ca2](https://github.com/marcelorodrigo/semantic-releasing/commit/e8b3ca2d45105ee89416107c497231c3ca902d0c))
+
 ## 1.0.0 (2025-11-05)
 
 
