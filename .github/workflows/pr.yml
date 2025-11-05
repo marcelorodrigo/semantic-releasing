@@ -7,8 +7,9 @@ jobs:
   release:
     name: Pull Request
     runs-on: ubuntu-latest
-    # Only run one job a time to avoid conflicts
-    concurrency: ci-${{ github.ref }}
+    concurrency:
+      group: pr-${{ github.ref }}
+      cancel-in-progress: true
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -16,6 +17,9 @@ jobs:
           fetch-depth: 0
           show-progress: 'false'
       - name: PR Conventional Commit Validation
-        uses: wagoid/commitlint-github-action@v6
+        uses: dev-build-deploy/commit-me@v0
+        with:
+          update-labels: false  # OPTIONAL; do not update the Pull Request labels based on the Conventional Commits information.
+          include-commits: false  # OPTIONAL; enforces the exclusion of commits associated with your Pull Request
       - name: Test and Analyse
         run: ./mvnw clean verify
