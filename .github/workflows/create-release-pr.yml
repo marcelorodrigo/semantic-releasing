@@ -10,12 +10,12 @@ permissions:
 concurrency:
   group: create-release
 jobs:
-  create_release:
+  release:
     name: Create Release
     runs-on: ubuntu-latest
     outputs:
-       version-3_5-created: ${{ steps.release.outputs['semantic-releasing-spring-boot-3_5--release_created'] }}
-       version-3_4-created: ${{ steps.release.outputs['semantic-releasing-spring-boot-3_4--release_created'] }}
+      version-3_5-created: ${{ steps.release.outputs['semantic-releasing-spring-boot-3_5--release_created'] }}
+      version-3_4-created: ${{ steps.release.outputs['semantic-releasing-spring-boot-3_4--release_created'] }}
     steps:
       - uses: actions/checkout@v5
         name: Checkout
@@ -34,9 +34,9 @@ jobs:
           echo "${{ toJson(steps.release.outputs) }}"
   release-spring-boot-34:
     name: Publish Spring Boot 3.4
-    if: needs.create_release.outputs.version-3_4-created == 'true'
+    if: needs.release.outputs.version-3_4-created == 'true'
+    needs: release
     runs-on: ubuntu-latest
-    needs: create_release
     steps:
       - uses: actions/checkout@v5
         name: Checkout
@@ -51,15 +51,19 @@ jobs:
           java-version-file: semantic-releasing-spring-boot-3_4/.java-version
           cache-dependency-path: semantic-releasing-spring-boot-3_4/pom.xml
       - name: Build
-        run: mvn deploy -no-transfer-progress --settings .github/workflows/settings.xml
+        run: >
+          mvn deploy
+          -no-transfer-progress
+          --settings .github/workflows/settings.xml
+          --file semantic-releasing-spring-boot-3_4/pom.xml
         working-directory: semantic-releasing-spring-boot-3_4
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   release-spring-boot-35:
     name: Publish Spring Boot 3.5
-    if: needs.create_release.outputs.version-3_5-created == 'true'
+    if: needs.release.outputs.version-3_5-created == 'true'
+    needs: release
     runs-on: ubuntu-latest
-    needs: create_release
     steps:
       - uses: actions/checkout@v5
         name: Checkout
@@ -74,7 +78,10 @@ jobs:
           java-version-file: semantic-releasing-spring-boot-3_5/.java-version
           cache-dependency-path: semantic-releasing-spring-boot-3_5/pom.xml
       - name: Build
-        run: mvn deploy -no-transfer-progress --settings .github/workflows/settings.xml
-        working-directory: semantic-releasing-spring-boot-3_5
+        run: >
+          mvn deploy
+          -no-transfer-progress
+          --settings .github/workflows/settings.xml
+          --file semantic-releasing-spring-boot-3_5/pom.xml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
