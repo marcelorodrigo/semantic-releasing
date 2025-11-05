@@ -22,7 +22,7 @@ jobs:
         with:
           node-version: 24
       - name: Install Semantic Release
-        run: npm install semantic-release
+        run: npm install -g semantic-release @conveyal/maven-semantic-release
       - name: Semantic Release
         id: semantic-release
         env :

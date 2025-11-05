@@ -4,8 +4,9 @@
   "dryRun": true,
   "debug": true,
   "plugins": [
-    "@semantic-release/github",
     "@semantic-release/commit-analyzer",
-    "@semantic-release/release-notes-generator"
+    "@conveyal/maven-semantic-release",
+    "@semantic-release/release-notes-generator",
+    "@semantic-release/github"
   ]
 }
