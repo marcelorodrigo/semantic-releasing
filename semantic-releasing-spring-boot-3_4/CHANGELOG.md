@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.0](https://github.com/marcelorodrigo/semantic-releasing/compare/semantic-releasing-spring-boot-3_4@v2.0.0...semantic-releasing-spring-boot-3_4@v2.1.0) (2025-11-05)
+
+
+### Features
+
+* add developer information for Marcelo Wiebbelling in pom.xml ([#31](https://github.com/marcelorodrigo/semantic-releasing/issues/31)) ([5abd0be](https://github.com/marcelorodrigo/semantic-releasing/commit/5abd0be274d03de12fb30e636b671ec94d0440a7))
+
 ## [2.0.0](https://github.com/marcelorodrigo/semantic-releasing/compare/semantic-releasing-spring-boot-3_4@v1.0.0...semantic-releasing-spring-boot-3_4@v2.0.0) (2025-11-05)
 
 
