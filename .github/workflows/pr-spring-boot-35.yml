@@ -1,7 +1,6 @@
 name: Pull Request 3.4
 on:
   pull_request:
-  push:
     paths:
       - '.github/workflows/pr-spring-boot-34.yml'
       - 'semantic-releasing-spring-boot-3.4/**'
