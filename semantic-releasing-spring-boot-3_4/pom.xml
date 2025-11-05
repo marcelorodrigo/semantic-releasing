@@ -25,7 +25,7 @@
 		<connection/>
 		<developerConnection/>
 		<tag/>
-		<url/>
+        <url>https://gihub.com/marcelorodrigo/semantic-releasing</url>
 	</scm>
 	<properties>
 		<java.version>21</java.version>
