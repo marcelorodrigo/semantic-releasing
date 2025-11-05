@@ -28,4 +28,4 @@ jobs:
           update-labels: false  # OPTIONAL; do not update the Pull Request labels based on the Conventional Commits information.
           include-commits: false  # OPTIONAL; enforces the exclusion of commits associated with your Pull Request
       - name: Test and Analyse
-        run: ./mvnw clean verify --show-progress=false
+        run: ./mvnw clean verify -no-transfer-progress
