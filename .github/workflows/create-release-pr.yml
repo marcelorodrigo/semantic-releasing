@@ -53,8 +53,10 @@ jobs:
           java-version-file: semantic-releasing-spring-boot-3_4/.java-version
           cache-dependency-path: semantic-releasing-spring-boot-3_4/pom.xml
       - name: Build
-        run: mvn deploy -no-transfer-progress
+        run: mvn deploy -no-transfer-progress --settings .github/workflows/settings.xml
         working-directory: semantic-releasing-spring-boot-3_4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   release-spring-boot-35:
     name: Publish Spring Boot 3.5
     if: needs.create_release.outputs.version-3_5-created == 'true'
@@ -74,5 +76,7 @@ jobs:
           java-version-file: semantic-releasing-spring-boot-3_5/.java-version
           cache-dependency-path: semantic-releasing-spring-boot-3_5/pom.xml
       - name: Build
-        run: mvn deploy -no-transfer-progress
+        run: mvn deploy -no-transfer-progress --settings .github/workflows/settings.xml
         working-directory: semantic-releasing-spring-boot-3_5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
