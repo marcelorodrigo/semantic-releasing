@@ -1,0 +1,17 @@
+{
+  "include-component-in-tag": true,
+  "include-v-in-tag": true,
+  "tag-separator": "@",
+  "separate-pull-requests": true,
+  "packages": {
+    "semantic-releasing-spring-boot-3.5": {
+      "path": "semantic-releasing-spring-boot-3.5",
+      "release-type": "maven"
+    },
+    "semantic-releasing-spring-boot-3.4": {
+      "path": "semantic-releasing-spring-boot-3.4",
+      "release-type": "maven"
+    }
+  },
+  "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json"
+}
