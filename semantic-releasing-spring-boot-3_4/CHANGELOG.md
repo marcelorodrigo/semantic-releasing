@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.2](https://github.com/marcelorodrigo/semantic-releasing/compare/semantic-releasing-spring-boot-3_4@v2.1.1...semantic-releasing-spring-boot-3_4@v2.1.2) (2025-11-05)
+
+
+### Bug Fixes
+
+* add organization information for developer in pom.xml ([#37](https://github.com/marcelorodrigo/semantic-releasing/issues/37)) ([6c2997b](https://github.com/marcelorodrigo/semantic-releasing/commit/6c2997b33acd0b96690ec78a80f9473a8396ff2a))
+
 ## [2.1.1](https://github.com/marcelorodrigo/semantic-releasing/compare/semantic-releasing-spring-boot-3_4@v2.1.0...semantic-releasing-spring-boot-3_4@v2.1.1) (2025-11-05)
 
 
