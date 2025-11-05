@@ -1,0 +1,38 @@
+name: Pull Request 3.4
+on:
+  pull_request:
+  push:
+    paths:
+      - '.github/workflows/pr-spring-boot-34.yml'
+      - 'semantic-releasing-spring-boot-3.4/**'
+permissions:
+  contents: read
+  pull-requests: write
+jobs:
+  pr:
+    name: Pull Request
+    runs-on: ubuntu-latest
+    concurrency:
+      group: pr-${{ github.ref }}
+      cancel-in-progress: true
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          show-progress: 'false'
+      - name: Set up JDK
+        uses: actions/setup-java@v5
+        with:
+          distribution: 'temurin'
+          cache: 'maven'
+          java-version-file: 'semantic-releasing-spring-boot-3.4/.java-version'
+          cache-dependency-path: 'semantic-releasing-spring-boot-3.4/pom.xml'
+      - name: PR Conventional Commit Validation
+        uses: dev-build-deploy/commit-me@v0
+        with:
+          update-labels: false
+          include-commits: false
+      - name: Test and Analyse
+        run: ./mvnw clean verify -no-transfer-progress
+        working-directory: semantic-releasing-spring-boot-3.4

@@ -1,0 +1,83 @@
+name: Create Release
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    outputs:
+      semantic-releasing-spring-boot-34--tag_name: ${{ steps.release.outputs.semantic-releasing-spring-boot-34--tag_name}}
+      semantic-releasing-spring-boot-35--tag_name: ${{ steps.release.outputs.semantic-releasing-spring-boot-35--tag_name}}
+    steps:
+      - uses: googleapis/release-please-action@v4
+        id: release
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          config-file: release-please-config.json
+          manifest-file: .release-please-manifest.json
+      - name: Release Outputs
+        continue-on-error: true
+        run: |
+          echo "Release outputs:"
+          echo "${{ toJson(steps.release.outputs) }}"
+  release-spring-boot-34:
+    if: ${{needs.release-please.outputs.semantic-releasing-spring-boot-34--tag_name}}
+    runs-on: ubuntu-latest
+    needs: release-please
+    steps:
+      - uses: actions/checkout@v5
+        name: Checkout
+        with:
+          fetch-depth: 0
+          show-progress: false
+      - name: Set up JDK
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          cache: maven
+          java-version-file: /semantic-releasing-spring-boot-3.4/.java-version
+          cache-dependency-path: /semantic-releasing-spring-boot-3.4/pom.xml
+      - name: Build
+        run: mvn clean verify -no-transfer-progress
+        working-directory: semantic-releasing-spring-boot-3.4
+  release-spring-boot-35:
+    if: ${{needs.release-please.outputs.semantic-releasing-spring-boot-35--tag_name}}
+    runs-on: ubuntu-latest
+    needs: release-please
+    steps:
+      - uses: actions/checkout@v5
+        name: Checkout
+        with:
+          fetch-depth: 0
+          show-progress: false
+      - name: Set up JDK
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          cache: maven
+          java-version-file: /semantic-releasing-spring-boot-3.5/.java-version
+          cache-dependency-path: /semantic-releasing-spring-boot-3.5/pom.xml
+      - name: Build
+        run: mvn clean verify -no-transfer-progress
+        working-directory: semantic-releasing-spring-boot-3.5
+  release:
+    name: Create Release
+    runs-on: ubuntu-latest
+    concurrency:
+      group: release-${{ github.ref }}
+      cancel-in-progress: true
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          show-progress: false
+      - name: Release Please
+        uses: googleapis/release-please-action@v4
+        with:
+          config-file: release-please-config.json
+          manifest-file: .release-please-manifest.json
+          token: ${{ secrets.GITHUB_TOKEN }}

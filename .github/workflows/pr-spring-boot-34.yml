@@ -1,6 +1,10 @@
-name: Pull Request CI
+name: Pull Request 3.5
 on:
   pull_request:
+  push:
+    paths:
+      - '.github/workflows/pr-spring-boot-35.yml'
+      - 'semantic-releasing-spring-boot-3.5/**'
 permissions:
   contents: read
   pull-requests: write
@@ -21,8 +25,9 @@ jobs:
         uses: actions/setup-java@v5
         with:
           distribution: 'temurin'
-          java-version-file: '.java-version'
           cache: 'maven'
+          java-version-file: 'semantic-releasing-spring-boot-3.5/.java-version'
+          cache-dependency-path: 'semantic-releasing-spring-boot-3.5/pom.xml'
       - name: PR Conventional Commit Validation
         uses: dev-build-deploy/commit-me@v0
         with:
@@ -30,3 +35,4 @@ jobs:
           include-commits: false
       - name: Test and Analyse
         run: ./mvnw clean verify -no-transfer-progress
+        working-directory: semantic-releasing-spring-boot-3.5
