@@ -5,11 +5,13 @@
   "separate-pull-requests": true,
   "packages": {
     "semantic-releasing-spring-boot-3_5": {
+      "component": "semantic-releasing-spring-boot-3_5",
       "include-component-in-tag": true,
       "path": "semantic-releasing-spring-boot-3_5",
       "release-type": "maven"
     },
     "semantic-releasing-spring-boot-3_4": {
+      "component": "semantic-releasing-spring-boot-3_4",
       "include-component-in-tag": true,
       "path": "semantic-releasing-spring-boot-3_4",
       "release-type": "maven"
