@@ -1,0 +1,30 @@
+name: Check PR Title
+on:
+  pull_request:
+    types:
+      - opened
+      - edited
+      - synchronize
+permissions:
+  contents: read
+  pull-requests: write
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+jobs:
+  pr:
+    name: Pull Request
+    runs-on: ubuntu-latest
+    env:
+      FORCE_COLOR: 3
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          show-progress: 'false'
+      - name: PR Conventional Commit Validation
+        uses: dev-build-deploy/commit-me@v0
+        with:
+          update-labels: false
+          include-commits: false

@@ -8,7 +8,7 @@
 		<relativePath/>
 	</parent>
 	<groupId>com.github.marcelorodrigo</groupId>
-	<artifactId>semantic-releasing-spring-boot-3.5</artifactId>
+	<artifactId>semantic-releasing-spring-boot-3_5</artifactId>
 	<version>1.0.0</version>
 	<name>semantic-releasing-spring-boot-3.5</name>
 	<description>Semantic Releasing Project 3.5</description>

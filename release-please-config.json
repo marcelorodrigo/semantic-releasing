@@ -4,15 +4,14 @@
   "tag-separator": "@",
   "separate-pull-requests": true,
   "packages": {
-    "semantic-releasing-spring-boot-3.5": {
+    "semantic-releasing-spring-boot-3_5": {
       "include-component-in-tag": true,
-      "path": "semantic-releasing-spring-boot-3.5",
-      "release-type": "maven",
-      "component": "semantic-releasing-spring-boot-3.5"
+      "path": "semantic-releasing-spring-boot-3_5",
+      "release-type": "maven"
     },
-    "semantic-releasing-spring-boot-3.4": {
+    "semantic-releasing-spring-boot-3_4": {
       "include-component-in-tag": true,
-      "path": "semantic-releasing-spring-boot-3.4",
+      "path": "semantic-releasing-spring-boot-3_4",
       "release-type": "maven"
     }
   },

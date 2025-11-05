@@ -3,13 +3,13 @@ on:
   pull_request:
     paths:
       - '.github/workflows/pr-spring-boot-35.yml'
-      - 'semantic-releasing-spring-boot-3.5/**'
+      - 'semantic-releasing-spring-boot-3_5/**'
 permissions:
   contents: read
   pull-requests: write
 jobs:
   pr:
-    name: Pull Request
+    name: Test
     runs-on: ubuntu-latest
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
@@ -25,13 +25,8 @@ jobs:
         with:
           distribution: 'temurin'
           cache: 'maven'
-          java-version-file: 'semantic-releasing-spring-boot-3.5/.java-version'
-          cache-dependency-path: 'semantic-releasing-spring-boot-3.5/pom.xml'
-      - name: PR Conventional Commit Validation
-        uses: dev-build-deploy/commit-me@v0
-        with:
-          update-labels: false
-          include-commits: false
+          java-version-file: 'semantic-releasing-spring-boot-3_5/.java-version'
+          cache-dependency-path: 'semantic-releasing-spring-boot-3_5/pom.xml'
       - name: Test and Analyse
         run: ./mvnw clean verify -no-transfer-progress
-        working-directory: semantic-releasing-spring-boot-3.5
+        working-directory: semantic-releasing-spring-boot-3_5
