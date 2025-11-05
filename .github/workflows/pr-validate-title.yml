@@ -1,0 +1,39 @@
+name: 🔍 Validate PR Title
+permissions:
+  contents: read
+  packages: read
+  pull-requests: read
+on:
+  pull_request:
+    types: [opened, edited, synchronize]
+jobs:
+  check-title:
+    name: Check PR title
+    runs-on: ubuntu-lastest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          show-progress: false
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+      - name: Install dependencies
+        run: yarn install commitlint
+      - name: Validate PR title
+        run: |
+          if ! echo "${{ github.event.pull_request.title }}" | yarn commitlint; then
+            echo ""
+            echo "❌ PR Title Format Error"
+            echo "Your PR title: '${{ github.event.pull_request.title }}'"
+            echo ""
+            echo "Expected format: type(scope): description"
+            echo "Examples:"
+            echo "  feat(component): add new feature"
+            echo "  fix(button): correct button style"
+            echo "  docs: update README"
+            echo ""
+            echo "Valid types: feat, fix, docs, style, refactor, test, chore"
+            echo ""
+            echo "📚 Learn more: https://www.conventionalcommits.org/"
+            exit 1
+          fi

@@ -1,5 +1,0 @@
-spring:
-  application:
-    name: semantic-releasing
-  main:
-    banner-mode: off
