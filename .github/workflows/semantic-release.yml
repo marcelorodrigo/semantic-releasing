@@ -1,0 +1,22 @@
+name: Semantic Release
+on:
+  pull_request:
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          show-progress: 'false'
+      - name: Calculate Semantic version
+        id: semantic-version
+        uses: paulhatch/semantic-version@v5.4.0
+        with:
+          version_from_branch: true
+          tag_prefix: "spring-boot-3.5-java-25-"
+          bump_each_commit: false
+          debug: true
