@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.4](https://github.com/marcelorodrigo/semantic-releasing/compare/semantic-releasing-spring-boot-3_4@v2.1.3...semantic-releasing-spring-boot-3_4@v2.1.4) (2025-11-05)
+
+
+### Bug Fixes
+
+* update SCM URL in pom.xml to correct GitHub link ([#48](https://github.com/marcelorodrigo/semantic-releasing/issues/48)) ([6930b36](https://github.com/marcelorodrigo/semantic-releasing/commit/6930b369da08fa1315f2e0a2fb3a9c4fbdd7c5c0))
+
 ## [2.1.3](https://github.com/marcelorodrigo/semantic-releasing/compare/semantic-releasing-spring-boot-3_4@v2.1.2...semantic-releasing-spring-boot-3_4@v2.1.3) (2025-11-05)
 
 
