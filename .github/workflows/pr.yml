@@ -2,7 +2,7 @@ name: Semantic Release
 on:
   pull_request:
 permissions:
-  contents: read
+  contents: write
 jobs:
   release:
     name: Pull Request
