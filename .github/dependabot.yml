@@ -1,0 +1,11 @@
+version: 2
+updates:
+  - package-ecosystem: "maven"
+    directory: "/semantic-releasing-spring-boot-3_4"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "maven"
+    directory: "/semantic-releasing-spring-boot-3_5"
+    schedule:
+      interval: "daily"
+
