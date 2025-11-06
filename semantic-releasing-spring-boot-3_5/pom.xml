@@ -16,11 +16,7 @@
 	<licenses>
 		<license/>
 	</licenses>
-	<developers>
-		<developer>
-            <name>Marcelo Rodrigo</name>
-        </developer>
-	</developers>
+	<developers />
 	<scm>
 		<connection/>
 		<developerConnection/>
