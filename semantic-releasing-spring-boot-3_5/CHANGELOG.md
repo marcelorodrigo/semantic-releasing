@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.4](https://github.com/marcelorodrigo/semantic-releasing/compare/semantic-releasing-spring-boot-3_5@v2.0.3...semantic-releasing-spring-boot-3_5@v2.0.4) (2025-11-06)
+
+
+### Bug Fixes
+
+* Remove developers information completely ([#58](https://github.com/marcelorodrigo/semantic-releasing/issues/58)) ([a28ec47](https://github.com/marcelorodrigo/semantic-releasing/commit/a28ec47037e048a205ad377a179ffd1378a73150))
+
 ## [2.0.3](https://github.com/marcelorodrigo/semantic-releasing/compare/semantic-releasing-spring-boot-3_5@v2.0.2...semantic-releasing-spring-boot-3_5@v2.0.3) (2025-11-05)
 
 
