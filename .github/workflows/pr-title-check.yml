@@ -20,7 +20,7 @@ jobs:
       FORCE_COLOR: 3
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           fetch-depth: 1
           show-progress: 'false'
