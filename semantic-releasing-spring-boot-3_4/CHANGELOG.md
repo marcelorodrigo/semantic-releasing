@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.2.0](https://github.com/marcelorodrigo/semantic-releasing/compare/semantic-releasing-spring-boot-3_4@v2.1.5...semantic-releasing-spring-boot-3_4@v2.2.0) (2025-12-31)
+
+
+### Features
+
+* new comment ([#78](https://github.com/marcelorodrigo/semantic-releasing/issues/78)) ([3b4a316](https://github.com/marcelorodrigo/semantic-releasing/commit/3b4a3167a9ba86a66695913c8f073a244eb4f550))
+
+
+### Bug Fixes
+
+* space ([73c28f9](https://github.com/marcelorodrigo/semantic-releasing/commit/73c28f9760d58c3acb13c5adfbacd72bf2f7a51a))
+* space 2 ([#77](https://github.com/marcelorodrigo/semantic-releasing/issues/77)) ([23f1d85](https://github.com/marcelorodrigo/semantic-releasing/commit/23f1d8545e2faaf5bef9a7f23205bc87efe234ba))
+
 ## [2.1.5](https://github.com/marcelorodrigo/semantic-releasing/compare/semantic-releasing-spring-boot-3_4@v2.1.4...semantic-releasing-spring-boot-3_4@v2.1.5) (2025-12-31)
 
 
