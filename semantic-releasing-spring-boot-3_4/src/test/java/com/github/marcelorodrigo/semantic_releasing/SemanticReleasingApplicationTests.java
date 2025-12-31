@@ -8,6 +8,7 @@ class SemanticReleasingApplicationTests {
 
 	@Test
 	void contextLoads() {
+		//
 	}
 
 }
