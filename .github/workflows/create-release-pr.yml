@@ -23,7 +23,7 @@ jobs:
         with:
           fetch-depth: 0
           show-progress: false
-      - uses: googleapis/release-please-action@v4
+      - uses: googleapis/release-please-action@v5
         name: Producing Release
         id: release
         with:
